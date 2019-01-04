@@ -1,0 +1,16 @@
+﻿@inject BlazorMVVM.Models.ToggleViewModel  Model
+
+<div>
+    <p>Toggle the button</p>
+    <button onclick="@Model.ToggleIt">@ToggleText</button>
+</div>
+
+@functions {
+    public string ToggleText
+    {
+        get
+        {
+            return Model.Toggle ? "Yes" : "No";
+        }
+    }
+}

@@ -1,0 +1,36 @@
+﻿@inject BlazorMVVM.Models.NumberViewModel NumberModel
+@inject BlazorMVVM.Models.ToggleViewModel ToggleModel 
+
+<div>
+    <h3>No VM Wrapper</h3>
+    <p>Number: @NumberModel.Number</p>
+    <p>Toggle: @ToggleModel.Toggle</p>
+</div>
+
+<div>
+    <h3>Number Wrapper</h3>
+    <ViewModelRegion ViewModel="@NumberModel">
+        <p>Number: @NumberModel.Number</p>
+        <p>Toggle: @ToggleModel.Toggle</p>
+    </ViewModelRegion>
+</div>
+
+<div>
+    <h3>Two Wrappers</h3>
+    <ViewModelRegion ViewModel="@NumberModel">
+        <p>Number: @NumberModel.Number</p>
+    </ViewModelRegion>
+    <ViewModelRegion ViewModel="@ToggleModel">
+        <p>Toggle: @ToggleModel.Toggle</p>
+    </ViewModelRegion>
+</div>
+
+<div>
+    <h3>Nested Wrappers</h3>
+    <ViewModelRegion ViewModel="@NumberModel">
+        <ViewModelRegion ViewModel="@ToggleModel">
+            <p>Number: @NumberModel.Number</p>
+            <p>Toggle: @ToggleModel.Toggle</p>
+        </ViewModelRegion>
+    </ViewModelRegion>
+</div>
