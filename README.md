@@ -4,7 +4,7 @@ This is an example of a possible solution to support the MVVM pattern (more spec
 
 Read the related blog post: [MVVM Support in Blazor](https://blog.jeremylikness.com/blog/2019-01-04_mvvm-support-in-blazor/).
 
-Current Blazor version for this project is: `3.0.0-preview6.19307.2`
+Current Blazor version for this project is: `3.0.0-preview7.19365.7`
 
 ![Screenshot](./splash.png)
 
