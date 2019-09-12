@@ -1,16 +1,16 @@
-@ChildContent
+﻿@ChildContent
 @using System.ComponentModel
 
 @code {
     [Parameter]
-    private RenderFragment ChildContent { get; set; }
+    public RenderFragment ChildContent { get; set; }
 
     [Parameter]
-    private INotifyPropertyChanged ViewModel { get; set; }
+    public INotifyPropertyChanged ViewModel { get; set; }
 
-    protected override void OnInit()
+    protected override void OnInitialized()
     {
-        base.OnInit();
+        base.OnInitialized();
         ViewModel.PropertyChanged += (o, e) => StateHasChanged();
     }
 }
