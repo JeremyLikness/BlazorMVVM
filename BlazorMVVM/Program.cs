@@ -1,16 +1,19 @@
 ﻿using Microsoft.AspNetCore.Blazor.Hosting;
+using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyInjection;
+using BlazorMVVM.Models;
 
 namespace BlazorMVVM
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
-        }
-
-        public static IWebAssemblyHostBuilder CreateHostBuilder(string[] args) =>
-            BlazorWebAssemblyHost.CreateDefaultBuilder()
-                .UseBlazorStartup<Startup>();
+            var builder = WebAssemblyHostBuilder.CreateDefault();
+            builder.RootComponents.Add<App>("app");
+            builder.Services.AddSingleton<NumberViewModel>();
+            builder.Services.AddSingleton<ToggleViewModel>();
+            await builder.Build().RunAsync();
+        }        
     }
 }
